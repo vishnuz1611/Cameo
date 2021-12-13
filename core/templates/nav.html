@@ -1,0 +1,45 @@
+{% load static %}
+
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top navChange" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="{% url 'index' %}" style="background: url({% static 'img/CAMeo.png' %}) center / contain no-repeat;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase" style="transform: translate(-421px);">
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'index' %}">HOME</a></li>
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="#">movies</a></li>
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="#">tv shows</a></li>
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'watchlist' %}">watchlist</a></li>
+
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item dropdown px-3" style="transform: translate(524px);">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                
+                                Welcome, {{request.user.username}}
+                                
+                                
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="auto" fill="currentColor"
+                                    class="bi bi-person-circle ms-2" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                </svg>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile Settings</a></li>
+                                <li><a class="dropdown-item" href="{% url 'Logout' %}">Log out</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                            <li class="nav-item px-3" style="transform: translate(524px);">
+                                <a class="nav-link text-dark btn btn-primary" style="color: white;" href="{% url 'Login' %}">
+                                    Login                        
+                                </a>
+                            </li>
+                            
+                        {% endif %}
+                </ul><i class="fa fa-search" style="transform: translate(-135px);color: rgb(255,255,255);"></i><i class="fa fa-bell" style="transform: translate(-112px);color: rgb(255,255,255);"></i>
+            </div>
+        </div>
+</nav>

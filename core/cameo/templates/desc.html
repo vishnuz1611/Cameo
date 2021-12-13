@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Info | CAMeO{% endblock title %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'css/desc.css' %}">
+
+{% endblock head %}
+
+{% block content %}
+
+<body style="background-color: rgb(54, 54, 54);">
+
+    {% include 'nav.html' %}
+
+    <div class="card mb-3 bg-black text-light card-custom" style="max-width: 700px; border-radius: 15px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'img/infodd.jpg' %}" class="img-fluid info-img" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Daredevil</h5>
+          <div class='card_right__rating'>
+            <div class='card_right__rating__stars'>
+              <fieldset class='rating'>
+                <input id='star5' name='rating' type='radio' value='5'>
+                <label class='full' for='star5' title='5 stars'></label>
+                <input id='star4half' name='rating' type='radio' value='4 and a half'>
+                <label class='half' for='star4half' title='4.5 stars'></label>
+                <input id='star4' name='rating' type='radio' value='4'>
+                <label class='full' for='star4' title='4 stars'></label>
+                <input id='star3half' name='rating' type='radio' value='3 and a half'>
+                <label class='half' for='star3half' title='3.5 stars'></label>
+                <input id='star3' name='rating' type='radio' value='3'>
+                <label class='full' for='star3' title='3 stars'></label>
+                <input id='star2half' name='rating' type='radio' value='2 and a half'>
+                <label class='half' for='star2half' title='2.5 stars'></label>
+                <input id='star2' name='rating' type='radio' value='2'>
+                <label class='full' for='star2' title='2 stars'></label>
+                <input id='star1half' name='rating' type='radio' value='1 and a half'>
+                <label class='half' for='star1half' title='1.5 stars'></label>
+                <input id='star1' name='rating' type='radio' value='1'>
+                <label class='full' for='star1' title='1 star'></label>
+                <input id='starhalf' name='rating' type='radio' value='half'>
+                <label class='half' for='starhalf' title='0.5 stars'></label>
+              </fieldset>
+            </div>
+          </div>
+          <p class="card-text">As a child Matt Murdock was blinded by a chemical spill in a freak accident. Instead of limiting him it gave him superhuman senses that enabled him to see the world in a unique and powerful way. Now he uses these powers to deliver justice, not only as a lawyer in his own law firm, but also as vigilante at night, stalking the streets of Hell's Kitchen as Daredevil, the man without fear..</p>
+          <div class='card_right__button'>
+            <a href='https://www.youtube.com/watch?v=ot6C1ZKyiME' target='_blank'>WATCH TRAILER</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+</body>
+
+{% endblock content %}
