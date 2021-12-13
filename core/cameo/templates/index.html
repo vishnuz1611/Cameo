@@ -4,6 +4,47 @@
 
 {% block title %}CAMeO - Home Page{% endblock title %}
 
+{% block head %}
+
+<style>
+
+.height {
+    height: 10vh
+}
+
+.search {
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+
+.search input {
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4
+}
+
+.search input:focus {
+    box-shadow: none;
+    border: 2px solid blue
+}
+
+.search .fa-search {
+    position: absolute;
+}
+
+.search button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 110px;
+}
+
+</style>
+
+
+{% endblock head %}
+
 {% block content %}
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: rgb(37,37,37);">
     {% include 'nav.html' %}
@@ -23,8 +64,16 @@
             </ol>
         </div>
     </header>
+    
 
     <section class="main-container">
+        <div class="container">
+                <div class="row height d-flex justify-content-center align-items-center">
+                    <div class="col-md-8">
+                        <form class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control" placeholder="Search for a movie or show" name='q' value="{{ requests.GET.q }}" type="submit"> <button name="action" type="submit" class="btn btn-success">Search</button> </form>
+                    </div>
+                </div>
+            </div>
             <div class="location" id="home">
                 <h1 class="subhead" id="home">Popular on CAMeO</h1>
                 <div class="box">
@@ -56,83 +105,5 @@
                 </div>
             </div>
 
-
-            <h1 class="subhead" id="myList">Trending Now</h1>
-            <div class="box">
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t2.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t3.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t4.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t5.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t6.PNG?raw=true"
-                        alt=""></a>
-            </div>
-
-            <h1 class="subhead" id="tvShows">TV Shows</h1>
-            <div class="box">
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv4.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv5.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv6.PNG?raw=true"
-                        alt=""></a>
-
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv7.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv8.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv9.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv10.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv11.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv12.PNG?raw=true"
-                        alt=""></a>
-            </div>
-
-
-            <h1 class="subhead" id="movies">Blockbuster Action & Adventure</h1>
-            <div class="box">
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m4.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m5.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m6.PNG?raw=true"
-                        alt=""></a>
-            </div>
-
-            <h1 class="subhead" id="originals">Netflix Originals</h1>
-            <div class="box">
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true"
-                        alt=""></a>
-                <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true"
-                        alt=""></a>
-            </div>
 </body>
 {% endblock content %}

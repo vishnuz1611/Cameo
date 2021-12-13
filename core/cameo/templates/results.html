@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Search | CAMeO{% endblock title %}
+
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+{% endblock head %}
+
+{% block content %}
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: rgb(37,37,37);">
+    
+    {% include 'nav.html' %}
+        <!-- END OF HEADER -->
+
+        <!-- MAIN CONTAINER -->
+        <section class="main-container">
+            <div class="location" id="home">
+                <h1 id="home">Search Results</h1>
+                <br>
+                <div class="box">
+                    {% for lists in data.Search %}
+                    <a href=""><img src="{{ lists.Poster }}"
+                            alt=""></a>
+                    {% endfor %}
+                </div>
+        </div>
+</body>
+
+{% endblock content %}
