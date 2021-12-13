@@ -1,63 +1,121 @@
+
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Info | CAMeO{% endblock title %}
+{% block title %} Info | CAMeO {% endblock title %}
 
 {% block head %}
+    <style>
+        /* font-family: 'Cormorant Garamond', serif;
+         font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif; */
 
-<link rel="stylesheet" href="{% static 'css/desc.css' %}">
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+        }
 
+        .display-1{
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        @media (max-width: 992px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        h3 {
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+        }
+
+
+
+        .display-6{
+            font-size: 30px;
+        }
+
+        .card_right__button {
+          padding: 0 0 0 0px;
+          margin: 30px 0 0 0;
+        }
+
+        .card_right__button a {
+          color: #ffda00;
+          text-decoration: none;
+          font-family: "Montserrat", sans-serif;
+          border: 2px solid #ffda00;
+          padding: 10px 10px 10px 40px;
+          font-size: 12px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 7% 50%;
+          border-radius: 5px;
+          transition-property: all;
+          transition-duration: 0.5s;
+        }
+
+        .card_right__button a:hover {
+          color: #000000;
+          background-color: #ffda00;
+          background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          background-position: 10% 50%;
+          cursor: pointer;
+          transition-property: all;
+          transition-duration: 0.5s;
+        }
+
+
+    </style>
 {% endblock head %}
 
 {% block content %}
 
-<body style="background-color: rgb(54, 54, 54);">
-
+<body style="background: rgb(37,37,37);">
+    
     {% include 'nav.html' %}
-
-    <div class="card mb-3 bg-black text-light card-custom" style="max-width: 700px; border-radius: 15px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{% static 'img/infodd.jpg' %}" class="img-fluid info-img" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Daredevil</h5>
-          <div class='card_right__rating'>
-            <div class='card_right__rating__stars'>
-              <fieldset class='rating'>
-                <input id='star5' name='rating' type='radio' value='5'>
-                <label class='full' for='star5' title='5 stars'></label>
-                <input id='star4half' name='rating' type='radio' value='4 and a half'>
-                <label class='half' for='star4half' title='4.5 stars'></label>
-                <input id='star4' name='rating' type='radio' value='4'>
-                <label class='full' for='star4' title='4 stars'></label>
-                <input id='star3half' name='rating' type='radio' value='3 and a half'>
-                <label class='half' for='star3half' title='3.5 stars'></label>
-                <input id='star3' name='rating' type='radio' value='3'>
-                <label class='full' for='star3' title='3 stars'></label>
-                <input id='star2half' name='rating' type='radio' value='2 and a half'>
-                <label class='half' for='star2half' title='2.5 stars'></label>
-                <input id='star2' name='rating' type='radio' value='2'>
-                <label class='full' for='star2' title='2 stars'></label>
-                <input id='star1half' name='rating' type='radio' value='1 and a half'>
-                <label class='half' for='star1half' title='1.5 stars'></label>
-                <input id='star1' name='rating' type='radio' value='1'>
-                <label class='full' for='star1' title='1 star'></label>
-                <input id='starhalf' name='rating' type='radio' value='half'>
-                <label class='half' for='starhalf' title='0.5 stars'></label>
-              </fieldset>
-            </div>
-          </div>
-          <p class="card-text">As a child Matt Murdock was blinded by a chemical spill in a freak accident. Instead of limiting him it gave him superhuman senses that enabled him to see the world in a unique and powerful way. Now he uses these powers to deliver justice, not only as a lawyer in his own law firm, but also as vigilante at night, stalking the streets of Hell's Kitchen as Daredevil, the man without fear..</p>
-          <div class='card_right__button'>
-            <a href='https://www.youtube.com/watch?v=ot6C1ZKyiME' target='_blank'>WATCH TRAILER</a>
-          </div>
+    <br>
+    <br><br><br><br>
+    <div class="container-fluid row mb-5">
+        <div class="container-fluid col-sm-5">
+          <img src="{% static 'img/infodd.jpg' %}"
+          class="d-block w-50" alt="...">
         </div>
-      </div>
+        <div class="container-fluid col-sm-5">
+            <h1 class="display-1">Daredevil</h1>
+            <h2>
+              As a child Matt Murdock was blinded by a chemical spill in a freak accident. Instead of limiting him it gave him superhuman senses that enabled him to see the world in a unique and powerful way. Now he uses these powers to deliver justice, not only as a lawyer in his own law firm, but also as vigilante at night, stalking the streets of Hell's Kitchen as Daredevil, the man without fear..
+            </h2>
+            <br>
+            <h3 class="lead">Rating:&nbsp;&nbsp;<strong>9.4</strong></h3>
+            
+            <br>
+            <h3 class="lead">
+                Genre:&nbsp;&nbsp;<strong>Crime</strong>
+            </h3>
+            <div class='card_right__button'>
+              <a href='https://www.youtube.com/watch?v=ot6C1ZKyiME' target='_blank'>WATCH TRAILER</a>
+            </div>
+            <br>
+            
+        </div>
     </div>
-  </div>
-      
-</body>
 
+    
+  </body>
 {% endblock content %}
