@@ -27,7 +27,7 @@
                 <br>
                 <div class="box">
                     {% for lists in data.Search %}
-                    <a href=""><img src="{{ lists.Poster }}"
+                    <a href="{% url 'desc' lists.imdbID %}"><img src="{{ lists.Poster }}"
                             alt=""></a>
                     {% endfor %}
                 </div>

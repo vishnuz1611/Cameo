@@ -93,20 +93,31 @@
     <br><br><br><br>
     <div class="container-fluid row mb-5">
         <div class="container-fluid col-sm-5">
-          <img src="{% static 'img/infodd.jpg' %}"
-          class="d-block w-50" alt="...">
+            {% if in_db is True %}
+                <img src="{{ data.Poster_url }}" class="d-block w-50" alt="...">
+
+            {% else %}
+                <img src="{{ data.Poster }}" class="d-block w-50" alt="...">
+            {% endif %}
         </div>
         <div class="container-fluid col-sm-5">
-            <h1 class="display-1">Daredevil</h1>
+            <h1 class="display-1">{{ data.Title }}</h1>
             <h2>
-              As a child Matt Murdock was blinded by a chemical spill in a freak accident. Instead of limiting him it gave him superhuman senses that enabled him to see the world in a unique and powerful way. Now he uses these powers to deliver justice, not only as a lawyer in his own law firm, but also as vigilante at night, stalking the streets of Hell's Kitchen as Daredevil, the man without fear..
+              {{ data.Plot }}
             </h2>
             <br>
-            <h3 class="lead">Rating:&nbsp;&nbsp;<strong>9.4</strong></h3>
+            <h3 class="lead">Rating:&nbsp;&nbsp;<strong>{{ data.imdbRating }}</strong></h3>
             
             <br>
             <h3 class="lead">
-                Genre:&nbsp;&nbsp;<strong>Crime</strong>
+
+                {% if in_db is True %}
+
+                Genre:&nbsp;&nbsp;{% for genre in data.Genre.all %}<strong>{{ genre }} </strong>{% endfor %}
+                {% else %}
+                Genre:&nbsp;&nbsp;<strong>{{ data.Genre }}</strong>
+                {% endif %}
+
             </h3>
             <div class='card_right__button'>
               <a href='https://www.youtube.com/watch?v=ot6C1ZKyiME' target='_blank'>WATCH TRAILER</a>
