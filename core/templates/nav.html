@@ -5,8 +5,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto text-uppercase" style="transform: translate(-421px);">
                     <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'index' %}">HOME</a></li>
-                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="#">movies</a></li>
-                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="#">tv shows</a></li>
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'movies' %}">movies</a></li>
+                    <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'shows' %}">tv shows</a></li>
                     <li class="nav-item" style="margin-right: 31px;transform: translate(76px);"><a class="nav-link" href="{% url 'watchlist' %}">watchlist</a></li>
 
                     {% if request.user.is_authenticated %}

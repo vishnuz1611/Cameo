@@ -93,3 +93,17 @@ def description(request, imdb_id):
 
 def profile(request):
     return render(request, 'profile.html', context={})
+
+def movies(request):
+    info = MovieSeries.objects.all()
+    context = {
+        'info': info
+    }
+    return render(request, 'movies.html', context)
+
+def shows(request):
+    info = MovieSeries.objects.all()
+    context = {
+        'info': info
+    }
+    return render(request, 'shows.html', context)

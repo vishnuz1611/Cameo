@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Watchlist | CAMeO{% endblock title %}
+
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+{% endblock head %}
+
+{% block content %}
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: rgb(37,37,37);">
+    
+    {% include 'nav.html' %}
+        <!-- END OF HEADER -->
+
+        <!-- MAIN CONTAINER -->
+        <section class="main-container">
+            <div class="location" id="home">
+                <h1 id="home">Popular TV Shows</h1>
+                <div class="box">
+                    {% for items in info %}
+                        {% if 'series' in items.Type %}
+                            <a href="{% url 'desc' items.imdbID %}"><img src="{{ items.Poster_url }}"
+                            alt=""></a>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </div>
+        </div>
+</body>
+
+{% endblock content %}
