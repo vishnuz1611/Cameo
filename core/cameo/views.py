@@ -2,7 +2,7 @@ from django.http import response
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 import requests
-from .models import MovieSeries, Genre, Rating
+from .models import MovieSeries, Genre, Rating, Watchlist
 from django.utils.text import slugify
 
 def index(request):
@@ -23,10 +23,6 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-
-@login_required
-def watchlist(request):
-    return render(request, 'watchlist.html', context={})
 
 def description(request, imdb_id):
     if MovieSeries.objects.filter(imdbID=imdb_id).exists():
@@ -84,12 +80,25 @@ def description(request, imdb_id):
 
         in_db = False
 
+    # if request.method == 'POST':
+    #     user = request.user
+    #     watchid = request.POST.get()
+
     context = {
         'data': data,
         'in_db': in_db,
     }
 
     return render(request, 'desc.html', context)
+
+@login_required
+def watchlist(request):
+    user = request.user
+    data = Watchlist.objects.filter(user=user)
+    context={
+        'data' : data
+    }
+    return render(request, 'watchlist.html', context)
 
 def profile(request):
     return render(request, 'profile.html', context={})

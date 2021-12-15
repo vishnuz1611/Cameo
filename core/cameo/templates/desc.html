@@ -55,8 +55,9 @@
           margin: 30px 0 0 0;
         }
 
-        .card_right__button a {
+        .card_right__button button {
           color: #ffda00;
+          background-color: #040F0F;
           text-decoration: none;
           font-family: "Montserrat", sans-serif;
           border: 2px solid #ffda00;
@@ -70,7 +71,7 @@
           transition-duration: 0.5s;
         }
 
-        .card_right__button a:hover {
+        .card_right__button button:hover {
           color: #000000;
           background-color: #ffda00;
           background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
@@ -126,7 +127,9 @@
 
             </h3>
             <div class='card_right__button'>
-              <a href='#'>Watchlist</a>
+            <form method='POST'> {% csrf_token %}
+              <button type=submit>Watchlist</button>
+            </form>
             </div>
             <br>
             

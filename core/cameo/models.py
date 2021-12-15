@@ -3,6 +3,7 @@ from django.utils.text import slugify
 import requests
 from io import BytesIO
 from django.core import files
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Genre(models.Model):
@@ -56,3 +57,9 @@ class MovieSeries(models.Model):
         return super().save(*args, **kwargs)
 
 
+class Watchlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    watchlist = models.ForeignKey(MovieSeries, on_delete=models.CASCADE)
+
+    def saveList(self):
+        self.save()
