@@ -80,9 +80,14 @@ def description(request, imdb_id):
 
         in_db = False
 
-    # if request.method == 'POST':
-    #     user = request.user
-    #     watchid = request.POST.get()
+    if request.method == 'POST':
+        user = request.user
+        imdbid = request.POST.get('imdbID')
+        watch = MovieSeries.objects.get(imdbID=imdbid)
+        watchList = Watchlist(user=user,watchlist=watch)
+        watchList.save()
+        return redirect('watchlist')
+
 
     context = {
         'data': data,
