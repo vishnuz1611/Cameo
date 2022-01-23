@@ -8,7 +8,7 @@ from django.utils.text import slugify
 def index(request):
     query = request.GET.get('q')
     if query:
-        url = 'http://www.omdbapi.com/?apikey=64830d56&s=' + query
+        url = 'http://www.omdbapi.com/?apikey=<your-api-key-here>&s=' + query
         response = requests.get(url)
         data = response.json()
         context = {
@@ -30,7 +30,7 @@ def description(request, imdb_id):
         in_db = True
 
     else:
-        url = 'http://www.omdbapi.com/?apikey=64830d56&i=' + imdb_id
+        url = 'http://www.omdbapi.com/?apikey=<your-api-key-here>&i=' + imdb_id
         response = requests.get(url)
         data = response.json()
 
